@@ -34,9 +34,30 @@ feature 'user signs up' do
   end
 
   scenario 'user does not provide valid information' do
+    visit root_path
+    click_link "Sign Up"
+    click_button "Sign Up"
+    expect(page).to have_content("can't be blank")
   end
 
   scenario 'user does not provide the same password for both password fields' do
+    visit root_path
+    click_link "Sign Up"
 
+    fill_in 'First Name', with: "Bob"
+    fill_in 'Last Name', with: "Dude"
+    fill_in 'Email', with: "bob@example.com"
+    fill_in 'Company', with: "Indian Line Farm"
+    fill_in 'Address', with: "221B Baker St"
+    fill_in 'City', with: "Great Barrington"
+    fill_in 'State', with: "MA"
+    fill_in 'Zip Code', with: "01230"
+
+    fill_in "Password", with: "iamapassword"
+    fill_in "Confirm Password", with: "imnotapassword?"
+
+    click_button "Sign Up"
+
+    expect(page).to have_content("match")
   end
 end

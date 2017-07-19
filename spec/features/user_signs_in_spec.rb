@@ -8,32 +8,45 @@ require 'rails_helper'
 [] I can't sign in twice--so, if I'm signed in, I should only see a 'sign out' button
 =end
 
-feature 'user signs in', pending: true do
+feature 'user signs in' do
   scenario 'authenticated user signs in' do
+    user = FactoryGirl.create(:user)
     visit root_path
-    click_on "Sign In"
+    click_link "Sign In"
 
-    fill_in :email, with: "jon@example.com"
-    fill_in :password, with: "jonPassword"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
 
-    click_on "Sign In"
+    click_button "Log in"
 
-    expect(page).to have("Welcome!")
+    expect(page).to have_content("Signed in successfully")
   end
 
   scenario 'unauthenticated user attempts to sign in' do
     visit root_path
-    click_on "Sign In"
-    fill_in :email, with: "Joe@example.com"
-    fill_in :password, with: "totallyfakepassword"
+    click_link "Sign In"
+    fill_in "Email", with: "Joe@example.com"
+    fill_in "Password", with: "totallyfakepassword"
 
-    click_on "Sign In"
+    click_button "Log in"
 
-    expect(page).to have("We don't have an account associated with this email/password.")
+    expect(page).to have_content("Invalid Email or password")
   end
 
   scenario 'authenticated user attempts to sign in twice' do
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
 
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
+
+    expect(page).to have_content('Sign Out')
+    expect(page).to_not have_content('Sign In')
+
+    visit new_user_session_path
+    expect(page).to have_content('You are already signed in.')
+    save_and_open_page
   end
 
 end
