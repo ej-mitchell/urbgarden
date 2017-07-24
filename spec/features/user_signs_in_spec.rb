@@ -20,6 +20,7 @@ feature 'user signs in' do
     click_button "Log in"
 
     expect(page).to have_content("Signed in successfully")
+    expect(page).to have_content("Sign Out")
   end
 
   scenario 'unauthenticated user attempts to sign in' do
@@ -31,6 +32,20 @@ feature 'user signs in' do
     click_button "Log in"
 
     expect(page).to have_content("Invalid Email or password")
+    expect(page).to_not have_content("Sign Out")
+  end
+
+  scenario 'an unauthenticated user attempts to sign in with an incorrect password and correct email' do
+    user = FactoryGirl.create(:user)
+    visit root_path
+    click_link "Sign In"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: "totallyfakepassword"
+
+    click_button "Log in"
+
+    expect(page).to have_content("Invalid Email or password")
+    expect(page).to_not have_content("Sign Out")
   end
 
   scenario 'authenticated user attempts to sign in twice' do
@@ -46,7 +61,6 @@ feature 'user signs in' do
 
     visit new_user_session_path
     expect(page).to have_content('You are already signed in.')
-    save_and_open_page
   end
 
 end
