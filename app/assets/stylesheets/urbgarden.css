@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Cutive|Source+Sans+Pro');
+
+h1, h2, h3, h4, h5, p {
+  padding-left: 15px;
+}
+
+body {
+  margin: 0px;
+  background-color: #F2F0DF;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+nav {
+  background-color: #ACC95F;
+  padding-top: 10px;
+}
+
+ul {
+  text-align: right;
+  list-style: none;
+  margin: 0 0 0 10px;
+  padding: 3px;
+}
+
+a:hover {
+  background-color: #A9C1D9;
+}
+
+a {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 5px;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+li {
+  display: inline;
+  /*float: left;*/
+}
+
+#title{
+  padding-top: 8px;
+  font-size: 30px;
+  font-family: 'Cutive', serif;
+  display: inline;
+  float: left
+}

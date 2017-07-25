@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
   def index
-    @home = "Hello!"
+    @home = "Welcome to UrbGarden! Buy local; sell local."
   end
 end
