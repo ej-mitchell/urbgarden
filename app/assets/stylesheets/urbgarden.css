@@ -12,38 +12,97 @@ body {
 
 nav {
   background-color: #ACC95F;
-  padding-top: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
-ul {
+ul#sign-in{
   text-align: right;
   list-style: none;
   margin: 0 0 0 10px;
   padding: 3px;
 }
 
-a:hover {
+a:hover#sign-in-link {
   background-color: #A9C1D9;
 }
 
-a {
+a#sign-in-link {
   font-family: 'Source Sans Pro', sans-serif;
   text-decoration: none;
   display: inline-block;
   margin-right: 5px;
+  margin-bottom: 10px;
   padding: 8px;
   background-color: #dddddd;
+
 }
 
-li {
+li#sign-in {
   display: inline;
   /*float: left;*/
 }
 
-#title{
+a.event-list {
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+ul.event-list {
+  list-style: none;
+}
+
+li.event-list {
+  text-align: center;
+  display: inline;
+}
+
+#title {
   padding-top: 8px;
+  padding-right: 20px;
   font-size: 30px;
   font-family: 'Cutive', serif;
   display: inline;
-  float: left
+  float: right;
+}
+
+#event-title {
+  font-size: 30px;
+  font-family: 'Cutive', serif;
+}
+
+#event-div {
+  background-color: white;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+#event-div-home {
+  text-align: center;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#event-header {
+  font-size: 15px;
+  font-family: 'Cutive', serif;
+}
+
+#event-button{
+  text-align: center;
+}
+
+#attending-button {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  background-color: #A9C1D9;
+  background-image: linear-gradient(top, #6496c8, #346392);
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
+  border-radius: 5px;
 }

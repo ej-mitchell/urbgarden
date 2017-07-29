@@ -12,17 +12,18 @@
     <nav>
       <ul>
         <li id="title">UrbGarden</li>
-        <li><%= link_to 'Home', root_path %></li>
+        <li id="sign-in"><%= link_to 'Home', root_path, id: "sign-in-link" %></li>
         <% if user_signed_in? %>
-          <li>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <li id="sign-in">
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, id: "sign-in-link" %>
+            <%= link_to 'Profile', user_path(current_user), id: "sign-in-link" %>
           </li>
         <% else %>
-          <li>
-            <%= link_to 'Sign Up', new_user_registration_path %>
+          <li id="sign-in">
+            <%= link_to 'Sign Up', new_user_registration_path, id: "sign-in-link" %>
           </li>
-          <li>
-            <%= link_to 'Sign In', new_user_session_path %>
+          <li id="sign-in">
+            <%= link_to 'Sign In', new_user_session_path, id: "sign-in-link" %>
           </li>
         <% end %>
       <ul>

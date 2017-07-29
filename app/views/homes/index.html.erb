@@ -1,1 +1,12 @@
 <h2><%= @home %></h2>
+
+<h3><%= @event_title %></h4>
+
+
+<ul class="event-list">
+  <% @events.each do |event| %>
+  <div id="event-div-home">
+    <li class="event-list"><%= link_to "#{event.name} – #{event.city}, #{event.state}", event_path(event.id), class: "event-list" %></li>
+  </div>
+  <% end %>
+</ul>
