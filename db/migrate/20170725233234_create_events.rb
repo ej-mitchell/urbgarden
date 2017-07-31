@@ -10,7 +10,6 @@ class CreateEvents < ActiveRecord::Migration[5.1]
       t.string :state, null: false
       t.string :map_url
       t.timestamps null: false
-      t.belongs_to :grower, class_name: "User", null: false
     end
   end
 end

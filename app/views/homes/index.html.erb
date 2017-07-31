@@ -1,1 +1,17 @@
 <h2><%= @home %></h2>
+
+<h3><%= @event_title %></h4>
+
+<% if user_signed_in? %>
+  <p>Don't see your event here? Add one!</p>
+  <%= link_to "Add Event", new_event_path %>
+<% end %>
+
+
+<ul class="event-list">
+  <% @events.each do |event| %>
+  <div id="event-div-home">
+    <li class="event-list"><%= link_to "#{event.name} – #{event.city}, #{event.state}", event_path(event.id), class: "event-list" %></li>
+  </div>
+  <% end %>
+</ul>
