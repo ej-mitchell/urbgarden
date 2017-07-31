@@ -47,15 +47,33 @@ a.event-list {
   color: black;
   font-size: 20px;
   text-decoration: none;
+
 }
 
 ul.event-list {
   list-style: none;
+  text-align: center;
 }
 
 li.event-list {
   text-align: center;
   display: inline;
+}
+
+div.event-form {
+  padding: 10px;
+}
+
+textarea {
+  width: 400px;
+  height: 100px;
+}
+
+input {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  width: 400px;
+  height: 20px;
 }
 
 #title {
@@ -67,9 +85,8 @@ li.event-list {
   float: right;
 }
 
-#event-title {
-  font-size: 30px;
-  font-family: 'Cutive', serif;
+#event-button{
+  text-align: center;
 }
 
 #event-div {
@@ -77,14 +94,30 @@ li.event-list {
   margin: 30px;
   padding: 30px;
   border-radius: 30px;
+  height: 700px;
+  width: 500px;
+  margin: auto;
 }
 
 #event-div-home {
   text-align: center;
   background-color: white;
-  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
   padding: 10px;
   border-radius: 10px;
+  width: 800px;
+}
+
+#error_explanation-events {
+  align-items: center;
+  text-align: center;
+  background-color: #77AB59;
+  margin: auto;
+  padding: 30px;
+  border-radius: 30px;
+  width: 300px;
 }
 
 #event-header {
@@ -92,11 +125,13 @@ li.event-list {
   font-family: 'Cutive', serif;
 }
 
-#event-button{
-  text-align: center;
+#event-title {
+  font-size: 30px;
+  font-family: 'Cutive', serif;
 }
 
-#attending-button {
+
+#attending-button, .event-form-submit {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
   text-align: center;
@@ -105,4 +140,7 @@ li.event-list {
   box-shadow: inset 0 0 0 1px #27496d;
   border: none;
   border-radius: 5px;
+  margin: 10px;
+  width: 100px;
+  height: 30px;
 }
