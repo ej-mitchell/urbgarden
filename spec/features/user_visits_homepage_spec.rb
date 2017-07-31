@@ -10,7 +10,7 @@ feature 'user visits the homepage' do
   let!(:event) { FactoryGirl.create(:event) }
   let!(:event2) { FactoryGirl.create(:event) }
   let!(:user) { FactoryGirl.create(:user) }
-  
+
   scenario 'user sees a list of events' do
     visit root_path
     expect(page).to have_content("Upcoming Events")
@@ -29,5 +29,12 @@ feature 'user visits the homepage' do
     visit root_path
     click_link "Profile"
     expect(page).to have_content("Google")
+  end
+
+  scenario 'user clicks on Add Event button at top of page' do
+    login_as(user, scope: :user)
+    visit root_path
+    click_link "Add Event"
+    expect(page).to have_content("Add New Event")
   end
 end

@@ -2,6 +2,11 @@
 
 <h3><%= @event_title %></h4>
 
+<% if user_signed_in? %>
+  <p>Don't see your event here? Add one!</p>
+  <%= link_to "Add Event", new_event_path %>
+<% end %>
+
 
 <ul class="event-list">
   <% @events.each do |event| %>
