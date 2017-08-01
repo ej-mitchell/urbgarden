@@ -65,6 +65,7 @@ class Event < ApplicationRecord
   validates :map_url, format: { with: /https?:\/\/[\S]+/, allow_blank: true }
 
   def self.search(search)
-    where("name ILIKE ? OR city ILIKE ? OR state ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    where("name ILIKE ? OR city ILIKE ? OR state ILIKE ?", "%#{search}%",
+      "%#{search}%", "%#{search}%")
   end
 end

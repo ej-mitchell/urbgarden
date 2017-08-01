@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
 
-    if Event.search(params[:search]).length > 0
+    if !Event.search(params[:search]).empty?
       @events = Event.search(params[:search]).order("created_at DESC")
     else
       flash[:notice] = "Sorry that event doesn't exist. Peruse these instead!"
@@ -47,5 +47,4 @@ class EventsController < ApplicationController
       :map_url
     )
   end
-
 end
