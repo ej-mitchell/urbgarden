@@ -10,8 +10,16 @@
 
   <body>
     <nav>
-      <ul>
+      <ul id="sign-in">
         <li id="title">UrbGarden</li>
+
+        <li id="search">
+          <%= form_tag(events_path, method: "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Events" %>
+            <%= submit_tag "Search", name: nil, id: "search-submit" %>
+          <% end %>
+        </li>
+
         <li id="sign-in"><%= link_to 'Home', root_path, id: "sign-in-link" %></li>
         <% if user_signed_in? %>
           <li id="sign-in">
@@ -31,6 +39,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div id="app"></div>
+
     <%= yield %>
   </body>
 </html>

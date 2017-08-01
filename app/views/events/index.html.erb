@@ -1,11 +1,4 @@
-<h2><%= @home %></h2>
-
-<h3><%= @event_title %></h4>
-
-<% if user_signed_in? %>
-  <p>Don't see your event here? Add one! — <%= link_to "Add Event", new_event_path %></p>
-<% end %>
-
+<h2>Search Results</h2>
 
 <ul class="event-list">
   <% @events.each do |event| %>
