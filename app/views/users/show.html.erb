@@ -1,1 +1,46 @@
-<h1><%= @user.company %></h1>
+<h2><%= @user.company %></h2>
+
+<h3>Products</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Unit</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td><%= product.unit %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3>Events</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Location</th>
+  </tr>
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= link_to event.event.name, event_path(event.event), id: "table-link" %></td>
+      <td><%= event.event.start_time.strftime("%D — %l:%M %p") %></td>
+      <td><%= event.event.city %>, <%= event.event.state %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3>About</h3>
+
+<div id="user-about">
+  <h4>Owner</h4>
+  <p><%= @user.first_name %> <%= @user.last_name %></p>
+
+  <h4>Address</h4>
+  <p><%= @user.address %>, <%= @user.city %>, <%= @user.state %>; <%= @user.zip %></p>
+
+  <h4>Contact</h4>
+  <p><%= @user.email %></p>
+<div>

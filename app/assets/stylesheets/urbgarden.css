@@ -81,6 +81,31 @@ input {
   height: 20px;
 }
 
+table, tr {
+  border: 1px solid black;
+  width: 500px;
+  margin: auto;
+}
+
+table {
+  background-color: black;
+  box-shadow: 1px 1px 1px gray;
+}
+
+th {
+  background-color: #A9C1D9;
+}
+
+tr, td {
+  background-color: #ececec;
+  padding: 8px;
+}
+
+#table-link {
+  text-decoration: none;
+  color: black;
+}
+
 #title {
   padding-top: 8px;
   padding-right: 20px;
@@ -94,7 +119,7 @@ input {
   text-align: center;
 }
 
-#event-div, #log-window, #up-window {
+#event-div, #log-window, #up-window, #user-about {
   background-color: white;
   margin: 30px;
   padding: 30px;
