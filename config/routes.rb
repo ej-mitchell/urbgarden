@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: "homes#index"
   resources :events, only:[:index, :show, :new, :create]
   resources :users, only: [:show]
+  resources :user_events, only: [:create]
 end
