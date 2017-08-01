@@ -38,11 +38,6 @@ a#sign-in-link {
 
 }
 
-li#sign-in {
-  display: inline;
-  /*float: left;*/
-}
-
 a.event-list {
   color: black;
   font-size: 20px;
@@ -50,8 +45,12 @@ a.event-list {
 
 }
 
-ul.event-list {
-  list-style: none;
+li#sign-in, li#search {
+  display: inline;
+  /*float: left;*/
+}
+
+li#search {
   text-align: center;
 }
 
@@ -59,6 +58,12 @@ li.event-list {
   text-align: center;
   display: inline;
 }
+
+ul.event-list {
+  list-style: none;
+  text-align: center;
+}
+
 
 div.event-form {
   padding: 10px;
@@ -82,7 +87,7 @@ input {
   font-size: 30px;
   font-family: 'Cutive', serif;
   display: inline;
-  float: right;
+  float: left;
 }
 
 #event-button{
@@ -131,7 +136,7 @@ input {
 }
 
 
-#attending-button, .event-form-submit {
+#attending-button, .event-form-submit, #search-submit {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
   text-align: center;
