@@ -15,8 +15,15 @@
 
   <h3 id="event-header">Map</h3>
   <p><%= @event.map_url %></p>
+
+  <h3 id="event-header">Attendees</h3>
+  <ul>
+    <% @attendees.each do |attendee| %>
+      <li><%= link_to attendee.grower.company, user_path(attendee.grower.id) %> – <%= attendee.grower.first_name %> <%= attendee.grower.last_name %></li>
+    <% end %>
+  </ul>
 </div>
 
 <div id="event-button">
-  <%= button_to "Attending", "#", method: "post", id: "attending-button" %>
+  <%= button_to "Attending", { controller: "user_events", action: "create", event_id: @event, grower_id: current_user } , method: :post, id: "attending-button" %>
 </div>
