@@ -43,10 +43,12 @@ class ProductsController < ApplicationController
 
   def product_params_edit
     @product = Product.find(params[:id])
-    params.require(:product).permit(:name, :price, :unit).merge(grower: @product.grower)
+    params.require(:product).permit(:name, :price, :unit)
+      .merge(grower: @product.grower)
   end
 
   def product_params
-    params.require(:product).permit(:name, :price, :unit).merge(grower: User.find(params[:user_id]))
+    params.require(:product).permit(:name, :price,:unit)
+      .merge(grower: User.find(params[:user_id]))
   end
 end
