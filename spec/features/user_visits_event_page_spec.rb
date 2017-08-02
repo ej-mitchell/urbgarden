@@ -23,11 +23,35 @@ feature 'user visits event show page' do
   end
 
   scenario 'authenticated user clicks attending button and is added to the attendees list' do
-    login_as(user2, scope: :user2)
+    login_as(user2, scope: :user)
     visit event_path(event)
 
     click_button "Attending"
 
-    expect(page).to have_link(user2.company)
+    expect(page).to have_link(user.company)
+  end
+
+  scenario 'if user is not signed in, they will not see button to attend' do
+    visit event_path(event)
+
+    expect(page).to_not have_button("Attending")
+  end
+
+  scenario 'if user says they are attending, the button is replaced with "Not Attending"' do
+    login_as(user2, scope: :user)
+    visit event_path(event)
+    click_button "Attending"
+
+    expect(page).to have_button("Not Attending")
+  end
+
+  scenario 'user clicks "Not Attending"' do
+    login_as(user2, scope: :user)
+    visit event_path(event)
+
+    click_button "Attending"
+    click_button "Not Attending"
+
+    expect(page).to have_button("Attending")
   end
 end

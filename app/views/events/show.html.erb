@@ -24,6 +24,12 @@
   </ul>
 </div>
 
-<div id="event-button">
-  <%= button_to "Attending", { controller: "user_events", action: "create", event_id: @event, grower_id: current_user } , method: :post, id: "attending-button" %>
-</div>
+<% if (user_signed_in? && !UserEvent.find_by(grower: current_user, event: @event))%>
+  <div id="event-button">
+    <%= button_to "Attending", { controller: "user_events", action: "create", event_id: @event, grower_id: current_user } , method: :post, id: "attending-button" %>
+  </div>
+<% elsif UserEvent.find_by(grower: current_user, event: @event) %>
+  <div id="event-button">
+    <%= button_to "Not Attending", { controller: "user_events", action: "destroy", event_id: @event, grower_id: current_user } , method: :delete, id: "not-attending-button" %>
+  </div>
+<% end %>
