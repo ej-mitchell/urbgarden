@@ -171,7 +171,7 @@ tr, td {
 }
 
 
-#attending-button, .event-form-submit, #search-submit, #log-in {
+#attending-button, #not-attending-button, #edit-button, .event-form-submit, #search-submit, #log-in, #delete-button {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
   text-align: center;
@@ -181,6 +181,11 @@ tr, td {
   border: none;
   border-radius: 5px;
   margin: 10px;
-  width: 100px;
+  min-width: 100px;
+  max-width: 200px;
   height: 30px;
+}
+
+#not-attending-button, #delete-button {
+  background-color: #DE4126
 }

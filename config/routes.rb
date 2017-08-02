@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :products, only: [:new, :create]
   end
   resources :products, only: [:edit, :update, :destroy]
-  resources :user_events, only: [:create]
+  resources :user_events, only: [:create, :destroy]
 end
