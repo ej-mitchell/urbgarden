@@ -6,9 +6,8 @@ feature 'user visits event show page' do
   let!(:user2) { FactoryGirl.create(:user) }
   let!(:user_event) { UserEvent.create(grower: user, event: event) }
 
-  scenario 'user clicks on event' do
-    visit root_path
-    click_link event.name
+  scenario 'user visits event page' do
+    visit event_path(event)
 
     expect(page).to have_content(event.name)
     expect(page).to have_content("Attendees")
