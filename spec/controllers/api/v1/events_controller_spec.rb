@@ -11,8 +11,8 @@ RSpec.describe Api::V1::EventsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
       expect(returned_json.length).to eq(2)
-      expect(returned_json.first["name"]).to include(event.name)
-      expect(returned_json.last["name"]).to include(event2.name)
+      expect(returned_json.last["name"]).to include(event.name)
+      expect(returned_json.first["name"]).to include(event2.name)
     end
   end
 
