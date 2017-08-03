@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  belongs_to :user
+  has_many :user_events
 
   STATES = [
     ["AK", "Alaska"],
@@ -63,6 +65,7 @@ class Event < ApplicationRecord
   validates :city, presence: true
   validates :state, presence: true
   validates :map_url, format: { with: /https?:\/\/[\S]+/, allow_blank: true }
+  validates :user_id, presence: true
 
   def self.search(search)
     where("name ILIKE ? OR city ILIKE ? OR state ILIKE ?", "%#{search}%",

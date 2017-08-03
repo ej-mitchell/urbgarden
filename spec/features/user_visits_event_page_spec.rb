@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 feature 'user visits event show page' do
-  let!(:event) { FactoryGirl.create(:event) }
   let!(:user) { FactoryGirl.create(:user) }
+  let!(:event) { FactoryGirl.create(:event, user: user2) }
   let!(:user2) { FactoryGirl.create(:user) }
   let!(:user_event) { UserEvent.create(grower: user, event: event) }
 

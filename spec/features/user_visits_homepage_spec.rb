@@ -7,9 +7,10 @@ require 'rails_helper'
 =end
 
 feature 'user visits the homepage' do
-  let!(:event) { FactoryGirl.create(:event) }
-  let!(:event2) { FactoryGirl.create(:event) }
   let!(:user) { FactoryGirl.create(:user) }
+  let!(:event) { FactoryGirl.create(:event, user: user) }
+  let!(:event2) { FactoryGirl.create(:event, user: user) }
+
 
   scenario 'user sees a list of events' do
     visit root_path

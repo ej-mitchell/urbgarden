@@ -1,0 +1,7 @@
+<h2>Edit Event</h2>
+
+<% if current_user && current_user == @event.user %>
+  <%= render 'form' %>
+<% else %>
+  <p>You cannot edit an event you didn't create!</p>
+<% end %>

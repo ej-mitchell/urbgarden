@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::EventsController, type: :controller do
-  let!(:event){ FactoryGirl.create(:event) }
-  let!(:event2){ FactoryGirl.create(:event) }
+  let!(:user){ FactoryGirl.create(:user) }
+  let!(:event){ FactoryGirl.create(:event, user: user) }
+  let!(:event2){ FactoryGirl.create(:event, user: user) }
 
   describe "GET#index" do
     it 'should return a list of all events' do

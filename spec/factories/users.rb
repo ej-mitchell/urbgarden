@@ -3,7 +3,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "person#{n}@example.com" }
     first_name 'John'
     last_name 'Smith'
-    company 'Google'
+    sequence(:company) {|n| "Google#{n}"}
     address '221B Baker Street'
     city 'London'
     state 'MA'

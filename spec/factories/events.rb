@@ -9,5 +9,6 @@ FactoryGirl.define do
     city 'London'
     state 'MA'
     map_url "http://google.com/maps"
+
   end
 end

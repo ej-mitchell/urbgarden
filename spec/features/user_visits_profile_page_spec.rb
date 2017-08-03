@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user visits their profile page' do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:event) { FactoryGirl.create(:event) }
+  let!(:event) { FactoryGirl.create(:event, user: user) }
   let!(:user_event) { UserEvent.create(grower: user, event: event) }
 
   scenario 'user clicks on profile link at top of the page' do
