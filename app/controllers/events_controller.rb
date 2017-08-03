@@ -69,6 +69,6 @@ class EventsController < ApplicationController
       :state,
       :event_url,
       :map_url
-    ).merge(user: current_user)
+    ).merge(user_id: current_user.id)
   end
 end
