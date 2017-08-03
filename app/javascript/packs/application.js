@@ -14,5 +14,8 @@ import ReactDOM from 'react-dom';
 import App from '../react/src/components/App';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // if (document.getElementById('app-event-index')) {
+  //   // ReactDOM.render(<EventIndex />, document.getElementById('app-event-index'))
+  // }
   ReactDOM.render(<App />, document.getElementById('app'));
 })
