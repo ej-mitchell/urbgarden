@@ -26,9 +26,11 @@ feature 'user signs up' do
 
     fill_in 'Password', with:"iamapassword"
     fill_in 'Confirm Password', with: "iamapassword"
+    attach_file "Profile Photo", "#{Rails.root}/spec/support/images/aang-meditates.png"
 
     click_button "Sign Up"
     expect(page).to have_content("Welcome to UrbGarden!")
+    expect(page).to have_css("img[src*='aang-meditates.png']")
     expect(page).to have_content("Sign Out")
 
   end
