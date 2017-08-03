@@ -54,11 +54,11 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  ##add ins to help with Devise##
+  config.include FactoryGirl::Syntax::Methods
+  config.include Devise::Test::ControllerHelpers, type: :controller
 end
 require "capybara/rails"
 require "valid_attribute"
 include Warden::Test::Helpers
-
-RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
-end

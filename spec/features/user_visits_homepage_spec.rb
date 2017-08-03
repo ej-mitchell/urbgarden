@@ -14,14 +14,6 @@ feature 'user visits the homepage' do
   scenario 'user sees a list of events' do
     visit root_path
     expect(page).to have_content("Upcoming Events")
-    expect(page).to have_content(event.name)
-    expect(page).to have_content(event2.name)
-  end
-
-  scenario 'user clicks on an event and is brought to its show page' do
-    visit root_path
-    click_link event.name
-    expect(page).to have_content('221B Baker Street')
   end
 
   scenario 'user clicks on Profile button on the top bar' do

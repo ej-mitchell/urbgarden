@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'webpacker', '~> 2.0'
 gem 'devise'
 gem 'carrierwave'
+gem 'active_model_serializers'
 
 group :development do
   gem 'listen', '~> 3.0.5'
