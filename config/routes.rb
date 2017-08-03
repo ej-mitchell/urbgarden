@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "homes#index"
 
-  resources :events, only:[:index, :show, :new, :create]
+  resources :events
   resources :products, only: [:edit, :update, :destroy]
 
   resources :users, only: [:show] do

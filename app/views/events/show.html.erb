@@ -6,6 +6,9 @@
   <h3 id="event-header">Time</h3>
   <p><%= @event.start_time.strftime("%a, %b %d %y %l:%M") %> — <%= @event.end_time.strftime("%a, %b %d %y %l:%M") %></p>
 
+  <h3 id="event-header">Event Creator</h3>
+  <p><%= @event.user.first_name %> <%= @event.user.last_name %> — <%= link_to @event.user.company, user_path(@event.user)%></p>
+
   <h3 id="event-header">Address</h3>
   <p><%= @event.address %>, </p>
   <p><%= @event.city %>, <%= @event.state %></p>
@@ -32,4 +35,9 @@
   <div id="event-button">
     <%= button_to "Not Attending", { controller: "user_events", action: "destroy", event_id: @event, grower_id: current_user } , method: :delete, id: "not-attending-button" %>
   </div>
+<% end %>
+
+<% if current_user && current_user == @event.user %>
+  <%= button_to "Edit", edit_event_path(@event), method: :get, id: "edit-button" %>
+  <%= button_to "Delete",  event_path(@event), method: :delete, id: "delete-button"%>
 <% end %>

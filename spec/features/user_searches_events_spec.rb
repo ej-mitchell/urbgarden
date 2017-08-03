@@ -2,8 +2,8 @@ require 'rails_helper'
 require 'spec_helper'
 
 feature 'user uses the search bar' do
-
-  let!(:event) { FactoryGirl.create(:event) }
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:event) { FactoryGirl.create(:event, user: user) }
 
   scenario 'search bar is present' do
     visit root_path

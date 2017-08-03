@@ -33,6 +33,29 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+    @state_collection = Event::STATES
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(event_params)
+      flash[:notice] = 'Event was successfully updated.'
+      redirect_to event_path(@event)
+    else
+      render action: 'edit'
+      @state_collection = Event::STATES
+    end
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.destroy!
+      redirect_to root_path
+    end
+  end
+
   private
 
   def event_params
@@ -46,6 +69,6 @@ class EventsController < ApplicationController
       :state,
       :event_url,
       :map_url
-    )
+    ).merge(user: current_user)
   end
 end

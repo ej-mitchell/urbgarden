@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration[5.1]
       t.string :city, null: false
       t.string :state, null: false
       t.string :map_url
+      t.belongs_to :user, null: false
       t.timestamps null: false
     end
   end
