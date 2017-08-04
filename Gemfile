@@ -7,26 +7,29 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'webpacker', '~> 2.0'
-gem 'devise'
+gem 'active_model_serializers', '~> 0.9.0'
 gem 'carrierwave'
-gem 'active_model_serializers'
+gem 'devise'
+
+
 
 group :development do
+  gem 'faker', github: 'stympy/faker'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'faker', github: 'stympy/faker'
 end
 
 group :development, :test do
   gem 'capybara'
+  gem 'coveralls', require: false
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'launchy', require: false
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
-  gem 'coveralls', require: false
 end
 
 group :production do

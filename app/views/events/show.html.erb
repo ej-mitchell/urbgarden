@@ -1,23 +1,9 @@
 <h2 id="event-title"><%= @event.name %></h2>
 
 <div id="event-div">
-  <h3 id="event-header">Description</h3>
-  <p><%= @event.description %></p>
-  <h3 id="event-header">Time</h3>
-  <p><%= @event.start_time.strftime("%a, %b %d %y %l:%M") %> — <%= @event.end_time.strftime("%a, %b %d %y %l:%M") %></p>
-
+  <div id="app"></div>
   <h3 id="event-header">Event Creator</h3>
   <p><%= @event.user.first_name %> <%= @event.user.last_name %> — <%= link_to @event.user.company, user_path(@event.user)%></p>
-
-  <h3 id="event-header">Address</h3>
-  <p><%= @event.address %>, </p>
-  <p><%= @event.city %>, <%= @event.state %></p>
-
-  <h3 id="event-header">Event URL</h3>
-  <p><%= @event.event_url %></p>
-
-  <h3 id="event-header">Map</h3>
-  <p><%= @event.map_url %></p>
 
   <h3 id="event-header">Attendees</h3>
   <ul>

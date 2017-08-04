@@ -12,11 +12,17 @@ console.log('Hello World from Webpacker')
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../react/src/components/App';
-import EventsIndexContainer from '../react/src/containers/EventsIndexContainer'
+// import EventsIndexContainer from '../react/src/containers/EventsIndexContainer'
+// import EventShowContainer from '../react/src/containers/EventShowContainer'
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('index-app')) {
-  ReactDOM.render(<EventsIndexContainer />, document.getElementById('index-app'));
-  }
+  // if (document.getElementById('index-app')) {
+  // ReactDOM.render(<EventsIndexContainer />, document.getElementById('index-app'));
+  // }
+  //
+  // if (document.getElementById('event-show-app')) {
+  // ReactDOM.render(<EventShowContainer />, document.getElementById('event-show-app'));
+  // }
+  ReactDOM.render(<App />, document.getElementById('app'));
 
 })

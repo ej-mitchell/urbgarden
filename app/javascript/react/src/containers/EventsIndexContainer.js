@@ -13,7 +13,7 @@ class EventsIndexContainer extends React.Component {
     fetch("/api/v1/events.json")
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({ events: responseData })
+        this.setState({ events: responseData.events })
       })
   }
 
@@ -22,7 +22,6 @@ class EventsIndexContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state.events)
     let eventMap = this.state.events.map((event) => {
       return (
         <EventTile

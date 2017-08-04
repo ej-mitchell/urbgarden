@@ -14,6 +14,9 @@ class User < ApplicationRecord
   validates :zip, length: { minimum: 5, maximum: 10 }
   validates :zip, format: { with: /\b\d{5}(-\d{4})?\b/ }
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
+
+  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
