@@ -3,7 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
 
-describe('ReviewTile', () => {
+describe('EventTile', () => {
   let wrapper;
   let id;
   let name;
