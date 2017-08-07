@@ -12,6 +12,8 @@ const EventInfoTile = (props) => {
       <p>{props.city}, {props.state}</p>
       <h3 id="event-header">Event URL</h3>
       <p><a href={`${props.eventUrl}`}>{props.eventUrl}</a></p>
+      <h3 id="event-header">Event Creator</h3>
+      <p>{props.fullName} — <a href={`/users/${props.creatorId}`}>{props.creatorCompany}</a></p>
     </div>
   )
 }

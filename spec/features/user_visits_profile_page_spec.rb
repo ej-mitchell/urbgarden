@@ -22,7 +22,7 @@ feature 'user visits their profile page' do
 
     click_link event.name
 
-    expect(page).to have_content("Attendees")
+    expect(page).to have_content(event.name)
   end
 
 end

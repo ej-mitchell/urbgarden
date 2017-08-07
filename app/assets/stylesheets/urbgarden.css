@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Cutive|Source+Sans+Pro');
 
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
 h1, h2, h3, h4, h5, p {
   padding-left: 15px;
 }
@@ -135,7 +140,7 @@ tr, td {
   text-align: center;
 }
 
-#event-div, #log-window, #up-window, #user-about, #product-div, #welcome {
+#log-window, #up-window, #user-about, #product-div, #welcome {
   background-color: white;
   margin: 30px;
   padding: 30px;
@@ -143,6 +148,17 @@ tr, td {
   width: 500px;
   margin: auto;
 }
+
+#event-div {
+  background-color: white;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 30px;
+  width: 500px;
+  margin: 10px;
+  float: right;
+}
+
 
 #log-window {
   height: 300px;
@@ -201,4 +217,9 @@ tr, td {
 
 #not-attending-button, #delete-button {
   background-color: #DE4126
+}
+
+.map {
+  position: relative;
+  background-color: black;
 }
