@@ -44,7 +44,6 @@ feature 'user edits product' do
     fill_in "Name", with: "Oi VEY"
     click_button "Add Event"
 
-    expect(page).to have_content(user.company)
     expect(page).to have_content("Oi VEY")
   end
 

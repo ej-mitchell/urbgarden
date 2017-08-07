@@ -9,7 +9,6 @@ RSpec.describe Api::V1::EventsController, type: :controller do
     it 'should return a list of all events' do
       get :index
       returned_json = JSON.parse(response.body)
-
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
       expect(returned_json["events"].length).to eq(2)
@@ -22,10 +21,9 @@ RSpec.describe Api::V1::EventsController, type: :controller do
     it 'should return a particular event' do
       get :show, params: { id: event.id }
       returned_json = JSON.parse(response.body)
-
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
-      expect(returned_json["name"]).to eq(event.name)
+      expect(returned_json["event"]["name"]).to eq(event.name)
     end
   end
 

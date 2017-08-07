@@ -10,25 +10,31 @@ feature 'user visits event show page' do
     visit event_path(event)
 
     expect(page).to have_content(event.name)
-    expect(page).to have_content("Attendees")
-    expect(page).to have_link(user.company)
+    page.should have_css('div#map-app')
+    within('div#event-div') do
+      page.should have_css('div#show-app')
+      page.should have_css('div#attendee-app')
+    end
   end
 
-  scenario 'user clicks company link and is brought to user show page' do
-    visit event_path(event)
-    click_link user.company
+  #Transitioned to React
+  # scenario 'user clicks company link and is brought to user show page' do
+  #   visit event_path(event)
+  #   click_link user.company
+  #
+  #   expect(page).to have_content(user.company)
+  # end
 
-    expect(page).to have_content(user.company)
-  end
-
-  scenario 'authenticated user clicks attending button and is added to the attendees list' do
-    login_as(user2, scope: :user)
-    visit event_path(event)
-
-    click_button "Attending"
-
-    expect(page).to have_link(user.company)
-  end
+  #transistioned to React
+  # scenario 'authenticated user clicks attending button and is added to the attendees list' do
+  #   login_as(user2, scope: :user)
+  #   visit event_path(event)
+  #
+  #   click_button "Attending"
+  #   within('div#attendee-app') do
+  #     expect(page).to have_link(user.company)
+  #   end
+  # end
 
   scenario 'if user is not signed in, they will not see button to attend' do
     visit event_path(event)

@@ -23,6 +23,9 @@ describe('EventInfoTile', () => {
       city = "Great Barrington"
       state = "MA"
       eventUrl = "http://www.google.com"
+      fullName = "Eliza Mitchell"
+      creatorId = {2}
+
     />)
   })
 
@@ -31,6 +34,7 @@ describe('EventInfoTile', () => {
     expect(wrapper.find('h3').at(1).text()).toEqual("Time");
     expect(wrapper.find('h3').at(2).text()).toEqual("Address");
     expect(wrapper.find('h3').at(3).text()).toEqual("Event URL");
+    expect(wrapper.find('h3').at(4).text()).toEqual("Event Creator");
   })
 
   it ('should have details about the event', () => {
@@ -38,14 +42,13 @@ describe('EventInfoTile', () => {
     expect(wrapper.find('p').at(1)).toIncludeText("09/09/10");
     expect(wrapper.find('p').at(2)).toIncludeText("123");
     expect(wrapper.find('p').at(3)).toIncludeText("Great Barrington");
+    expect(wrapper.find('p').at(5)).toIncludeText("Eliza");
   })
 
-  it ('should have a link present', () => {
-    expect(wrapper.find('a')).toBePresent();
-  })
 
-  it ('should have a link with the correct url', () => {
-    expect(wrapper.find('a')).toHaveProp('href', 'http://www.google.com');
+  it ('should have a links associated with company and event', () => {
+    expect(wrapper.find('a').at(0)).toHaveProp('href', 'http://www.google.com');
+    expect(wrapper.find('a').at(1)).toHaveProp('href', `/users/2`)
   })
 
 

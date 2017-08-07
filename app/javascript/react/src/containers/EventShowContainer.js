@@ -1,22 +1,23 @@
 import React from 'react';
 import EventInfoTile from '../components/EventInfoTile';
-import MapTile from '../components/MapTile';
+import MapContainer from './MapContainer';
 
 class EventShowContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      event: {}
+      event: {},
+      user: {}
     }
 
   }
 
   fetchEvent() {
-    let eventId = this.props.params.id;
+    let eventId = this.props.id;
     fetch(`/api/v1/events/${eventId}`)
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({ event: responseData })
+        this.setState({ event: responseData.event, user: responseData.event.user })
       })
   }
 
@@ -25,24 +26,25 @@ class EventShowContainer extends React.Component {
   }
 
   render() {
+    let fullName = `${this.state.user.first_name} ${this.state.user.last_name}`
     return(
       <div>
-        <EventInfoTile
-          id = {this.state.event.id}
-          description = {this.state.event.description}
-          start_time = {this.state.event.start_time}
-          end_time = {this.state.event.end_time}
-          address = {this.state.event.address}
-          city = {this.state.event.city}
-          state = {this.state.event.state}
-          eventUrl={this.state.event.event_url}
-        />
+        <div>
+          <EventInfoTile
+            id = {this.state.event.id}
+            description = {this.state.event.description}
+            start_time = {this.state.event.start_time}
+            end_time = {this.state.event.end_time}
+            address = {this.state.event.address}
+            city = {this.state.event.city}
+            state = {this.state.event.state}
+            eventUrl={this.state.event.event_url}
+            fullName={fullName}
+            creatorCompany={this.state.user.company}
+            creatorId={this.state.event.user_id}
+          />
+        </div>
 
-        <MapTile
-          address = {this.state.event.address}
-          city = {this.state.event.city}
-          state = {this.state.event.state}
-        />
       </div>
     )
   }

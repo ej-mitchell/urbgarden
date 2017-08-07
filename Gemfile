@@ -7,10 +7,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'webpacker', '~> 2.0'
-gem 'active_model_serializers', '~> 0.9.0'
+gem 'active_model_serializers'
 gem 'carrierwave'
 gem 'devise'
-
+gem 'dotenv-rails'
 
 
 group :development do
