@@ -37,7 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (document.getElementById("map-app")) {
-    ReactDOM.render(<MapContainer />, document.getElementById("map-app"))
+    let appDiv = document.getElementById("map-app");
+    let env = appDiv.dataset.env;
+    ReactDOM.render(<MapContainer env={env}/>, document.getElementById("map-app"))
   }
   // ReactDOM.render(<App />, document.getElementById('app'));
 

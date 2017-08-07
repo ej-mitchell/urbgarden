@@ -1,23 +1,22 @@
 <h2 id="event-title"><%= @event.name %></h2>
-<div id="map-app"></div>
+<div id="map-app" data-env="<%= ENV['GOOGLE_MAPS_API'] %>"></div>
 <div id="event-div">
   <div id="show-app"  data-id= "<%= @event.id %>"></div>
   <div id="attendee-app" data-id= "<%= @event.id %>"></div>
+
+  <% if (user_signed_in? && !UserEvent.find_by(grower: current_user, event: @event))%>
+    <div id="event-button">
+      <%= button_to "Attending", { controller: "user_events", action: "create", event_id: @event, grower_id: current_user } , method: :post, id: "attending-button" %>
+    </div>
+  <% elsif UserEvent.find_by(grower: current_user, event: @event) %>
+    <div id="event-button">
+      <%= button_to "Not Attending", { controller: "user_events", action: "destroy", event_id: @event, grower_id: current_user } , method: :delete, id: "not-attending-button" %>
+    </div>
+  <% end %>
+
+  <% if current_user && current_user == @event.user %>
+    <%= button_to "Edit", edit_event_path(@event), method: :get, id: "edit-button" %>
+    <%= button_to "Delete",  event_path(@event), method: :delete, id: "delete-button"%>
+  <% end %>
+
 </div>
-
-
-
-<% if (user_signed_in? && !UserEvent.find_by(grower: current_user, event: @event))%>
-  <div id="event-button">
-    <%= button_to "Attending", { controller: "user_events", action: "create", event_id: @event, grower_id: current_user } , method: :post, id: "attending-button" %>
-  </div>
-<% elsif UserEvent.find_by(grower: current_user, event: @event) %>
-  <div id="event-button">
-    <%= button_to "Not Attending", { controller: "user_events", action: "destroy", event_id: @event, grower_id: current_user } , method: :delete, id: "not-attending-button" %>
-  </div>
-<% end %>
-
-<% if current_user && current_user == @event.user %>
-  <%= button_to "Edit", edit_event_path(@event), method: :get, id: "edit-button" %>
-  <%= button_to "Delete",  event_path(@event), method: :delete, id: "delete-button"%>
-<% end %>
