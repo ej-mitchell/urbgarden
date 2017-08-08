@@ -1,6 +1,6 @@
-<h2><%= @user.company %></h2>
+<h2 class="profile-header company"><%= @user.company %></h2>
 
-<h3>Products</h3>
+<h3 class="profile-header">Products</h3>
 <table>
   <tr>
     <th>Name</th>
@@ -23,10 +23,10 @@
 </table>
 
 <% if (user_signed_in?) && (@user.id == current_user.id) %>
-  <%= link_to "Add new product", new_user_product_path(@user) %>
+  <%= link_to "Add new product", new_user_product_path(@user), class: "order-callout table-link" %>
 <% end %>
 
-<h3>Events</h3>
+<h3 class="profile-header">Events</h3>
 <table>
   <tr>
     <th>Name</th>
@@ -35,14 +35,16 @@
   </tr>
   <% @events.each do |event| %>
     <tr>
-      <td><%= link_to event.event.name, event_path(event.event), id: "table-link" %></td>
+      <td><%= link_to event.event.name, event_path(event.event), class: "table-link" %></td>
       <td><%= event.event.start_time.strftime("%D — %l:%M %p") %></td>
       <td><%= event.event.city %>, <%= event.event.state %></td>
     </tr>
   <% end %>
 </table>
 
-<h3>About</h3>
+<h4 class="order-callout">Like what you see? <%=link_to "Make an order!", new_user_order_path(@user), class: "table-link"%></h4>
+
+<h3 class="profile-header">About</h3>
 
 <div id="user-about">
   <img src="<%= @user.avatar %>", id="avatar" />
