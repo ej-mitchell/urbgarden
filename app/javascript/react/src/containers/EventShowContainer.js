@@ -1,6 +1,7 @@
 import React from 'react';
 import EventInfoTile from '../components/EventInfoTile';
-import MapContainer from './MapContainer';
+// import MapContainer from './MapContainer';
+import AttendeeContainer from './AttendeeContainer';
 
 class EventShowContainer extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class EventShowContainer extends React.Component {
   }
 
   fetchEvent() {
-    let eventId = this.props.id;
+    let eventId = this.props.params.id;
     fetch(`/api/v1/events/${eventId}`)
       .then((response) => response.json())
       .then((responseData) => {
@@ -43,6 +44,8 @@ class EventShowContainer extends React.Component {
             creatorCompany={this.state.user.company}
             creatorId={this.state.event.user_id}
           />
+
+          <AttendeeContainer eventId={this.props.params.id}/>
         </div>
 
       </div>

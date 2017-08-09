@@ -5,7 +5,7 @@ class AttendeeContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      eventId: this.props.id,
+      eventId: this.props.eventId,
       userEvents: []
     }
 

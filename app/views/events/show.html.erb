@@ -1,8 +1,6 @@
-<h2 id="event-title"><%= @event.name %></h2>
-<div id="map-app" data-env="<%= ENV['GOOGLE_MAPS_API'] %>"></div>
 <div id="event-div">
-  <div id="show-app"  data-id="<%= @event.id %>"></div>
-  <div id="attendee-app" data-id= "<%= @event.id %>"></div>
+  <h2 id="event-title"><%= @event.name %></h2>
+  <div id="app"></div>
 
   <% if (user_signed_in? && !UserEvent.find_by(grower: current_user, event: @event))%>
     <div id="event-button">
