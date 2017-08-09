@@ -1,3 +1,4 @@
+<div class="form-div">
 <h2>Edit Product</h2>
 
 <% if (user_signed_in?) && (@product.grower.id == current_user.id) %>
@@ -5,3 +6,4 @@
 <% else %>
   <p>You cannot edit other people's products.</p>
 <% end %>
+</div>

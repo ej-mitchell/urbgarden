@@ -1,17 +1,12 @@
-<h2><%= @home %></h2>
+<div class="welcome-events profile">
+<h3 class="no-background"><%= @event_title %></h4>
 <% if current_user %>
-  <div id="welcome">
-    <h4>
-      <img src="<%= @user_pic %>", id="welcome-pic"/>
-      Welcome, <%= @user.first_name %>!
-    <h4>
-  </div>
+  <p>
+    Don't see your event here? Add one! —
+    <%= link_to "Add Event", new_event_path, class: "add-event" %>
+  </p>
 <% end %>
-<h3><%= @event_title %></h4>
-
-<% if current_user %>
-  <p>Don't see your event here? Add one! — <%= link_to "Add Event", new_event_path %></p>
-<% end %>
+</div>
 
 
-<div id="index-app"></div>
+<div id="app"></div>

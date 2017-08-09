@@ -10,31 +10,28 @@
 
   <body>
     <nav>
-      <ul id="sign-in">
-        <li id="title">UrbGarden</li>
-
+      <ul id="sign-in-list">
+        <li id="title"><%= link_to "UrbGarden", root_path, id: "home" %></li>
         <li id="search">
           <%= form_tag(events_path, method: "get", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Events" %>
             <%= submit_tag "Search", name: nil, id: "search-submit" %>
           <% end %>
         </li>
-
-        <li id="sign-in"><%= link_to 'Home', root_path, id: "sign-in-link" %></li>
         <% if user_signed_in? %>
-          <li id="sign-in">
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, id: "sign-in-link" %>
-            <%= link_to 'Profile', user_path(current_user), id: "sign-in-link" %>
+          <li id="signed-in">
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "sign-in-link" %>
+            <%= link_to 'Profile', user_path(current_user), class: "sign-in-link" %>
           </li>
         <% else %>
-          <li id="sign-in">
-            <%= link_to 'Sign Up', new_user_registration_path, id: "sign-in-link" %>
+          <li id="sign-up">
+            <%= link_to 'Sign Up', new_user_registration_path, class: "sign-in-link" %>
           </li>
           <li id="sign-in">
-            <%= link_to 'Sign In', new_user_session_path, id: "sign-in-link" %>
+            <%= link_to 'Sign In', new_user_session_path, class: "sign-in-link" %>
           </li>
         <% end %>
-      <ul>
+      </ul>
     </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

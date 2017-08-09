@@ -1,6 +1,8 @@
-<h2>Add a new product</h2>
-<% if (user_signed_in?) && (@user.id == current_user.id) %>
-  <%= render 'form' %>
-<% else %>
-  <p>You can only add products to your own page!</p>
-<% end %>
+<div class="form-div">
+  <h2>Add a new product</h2>
+  <% if (user_signed_in?) && (@user.id == current_user.id) %>
+    <%= render 'form' %>
+  <% else %>
+    <p>You can only add products to your own page!</p>
+  <% end %>
+</div>
