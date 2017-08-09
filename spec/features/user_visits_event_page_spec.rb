@@ -10,11 +10,7 @@ feature 'user visits event show page' do
     visit event_path(event)
 
     expect(page).to have_content(event.name)
-    page.should have_css('div#map-app')
-    within('div#event-div') do
-      page.should have_css('div#show-app')
-      page.should have_css('div#attendee-app')
-    end
+    page.should have_css('div#app')
   end
 
   #Transitioned to React
@@ -25,13 +21,13 @@ feature 'user visits event show page' do
   #   expect(page).to have_content(user.company)
   # end
 
-  #transistioned to React
+  # transistioned to React
   # scenario 'authenticated user clicks attending button and is added to the attendees list' do
   #   login_as(user2, scope: :user)
   #   visit event_path(event)
   #
   #   click_button "Attending"
-  #   within('div#attendee-app') do
+  #   within('div#app') do
   #     expect(page).to have_link(user.company)
   #   end
   # end

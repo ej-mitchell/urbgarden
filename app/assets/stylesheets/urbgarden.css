@@ -33,6 +33,14 @@ a#home {
   color: inherit;
 }
 
+.notice, .alert {
+  background-color: #901800;
+  color: white;
+  width: 300px;
+  opacity: 0.5;
+  border-radius: 5px;
+}
+
 a:hover.sign-in-link, a:hover.add-event, .table-link:hover {
   background-color: #EAA404;
 }
@@ -53,6 +61,16 @@ a.event-list {
   text-decoration: none;
 
 }
+#search-submit {
+  width: 55px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
 
 a.event-list:hover {
   color: #901800;
@@ -69,9 +87,19 @@ a.profile-links {
 
 .profile-header {
   font-family: 'Cutive', serif;
+  width: 100px;
+  padding: 5px;
+  text-align: center;
+  margin: 10px auto 10px auto;
+  background: white;
+  opacity: 0.5;
+  border-radius: 5px;
 }
 
-.profile-header.company, .order-callout {
+.profile-header.company {
+  width: 300px;
+  border: 5px solid #901800;
+  opacity: 0.7;
   text-align: center;
 }
 
@@ -84,12 +112,6 @@ a.profile-links {
   margin: auto;
   max-width: 200px;
   max-height: 200px;
-}
-
-#welcome-pic {
-  margin: auto;
-  max-width: 80px;
-  max-height: 80px;
 }
 
 li#signed-in, li#sign-in, li#sign-up, li#search, li#title, #search-form {
@@ -242,7 +264,7 @@ tr, td {
 }
 
 
-#attending-button, #not-attending-button, #edit-button, .event-form-submit, #log-in, #delete-button {
+#attending-button, #not-attending-button, #edit-button, .event-form-submit, #log-in, #delete-button, .product-form-submit {
   display: block;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
