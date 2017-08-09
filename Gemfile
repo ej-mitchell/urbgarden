@@ -11,6 +11,7 @@ gem 'active_model_serializers'
 gem 'carrierwave'
 gem 'devise'
 gem 'dotenv-rails'
+gem "fog-aws"
 
 
 group :development do
