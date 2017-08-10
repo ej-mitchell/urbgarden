@@ -264,7 +264,7 @@ tr, td {
 }
 
 
-#attending-button, #not-attending-button, #edit-button, .event-form-submit, #log-in, #delete-button, .product-form-submit {
+#attending-button, #not-attending-button, #edit-button, .event-form-submit, #log-in, #delete-button, .product-form-submit, .cancel {
   display: block;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
@@ -283,7 +283,7 @@ tr, td {
   opacity: 1;
 }
 
-#not-attending-button, #delete-button {
+#not-attending-button, #delete-button, .cancel {
   background-color: #901800;
   opacity: 1;
 }

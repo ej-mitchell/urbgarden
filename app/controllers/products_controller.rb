@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @user = @product.grower
     if @product.destroy!
+      flash[:notice] = "Product deleted."
       redirect_to user_path(@user)
     end
   end

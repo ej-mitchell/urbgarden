@@ -25,6 +25,7 @@ class EventsController < ApplicationController
 
     if @event.save
       flash[:notice] = "Event created!"
+      UserMailer.event_email(@event.user).deliver_now
       redirect_to event_path(@event.id)
     else
       flash[:alert] = "Event not created; please review form."
