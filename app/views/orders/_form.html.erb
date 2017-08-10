@@ -11,8 +11,6 @@
       </div>
   <% end %>
 
-  <div class="form-div">
-
     <div class="event-form">
       <%= f.label :name, 'Name' %> <br>
       <%= f.text_field :name %>
@@ -23,32 +21,15 @@
       <%= f.text_field :email %>
     </div>
 
-    <div class="event-form">
-      <%= f.fields_for @product_order do |ff| %>
-        <p class="form-label">Products</p>
-        <p class="form-description">Enter number of units.</p>
-        <div class="form-table">
-          <table>
-            <% @products_list.each do |product|%>
-            <tr>
-              <td>
-                <%= ff.label :product, "#{product.name}, #{product.price}/ #{product.unit}" %>
-              </td>
-              <td>
-                <%= ff.text_field :quantity %><br>
-              </td>
-            <% end %>
-            </tr>
-          </table>
-        </div>
-      <% end %>
-    </div>
-
-    <p class="form-label">Events</p>
+    <p class="form-label">Where are you picking your order up?</p>
     <div class="event-form">
       <% @events.each do |event|%>
         <%= f.label :event, "#{event.name}"%>
         <%= f.radio_button :event, "#{event.name}", value: event%><br>
       <% end %>
+    </div>
+
+    <div class="event-form">
+      <%= f.submit 'Continue to Order', class: "event-form-submit" %>
     </div>
   <% end %>

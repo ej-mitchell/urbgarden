@@ -1,0 +1,6 @@
+<h1>Your Order</h1>
+<ul>
+<% @order.product_orders.each do |po| %>
+  <li><%= po.product.name %> — <%= po.quantity %></li>
+<% end %>
+</ul>

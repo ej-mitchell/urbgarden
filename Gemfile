@@ -11,7 +11,8 @@ gem 'active_model_serializers'
 gem 'carrierwave'
 gem 'devise'
 gem 'dotenv-rails'
-gem "fog-aws"
+gem "fog"
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 
 
 group :development do
