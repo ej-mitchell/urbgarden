@@ -12,7 +12,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'dotenv-rails'
 gem "fog"
-gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
+gem 'mailgun-ruby', '~>1.1.6'
 
 
 group :development do

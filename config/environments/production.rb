@@ -72,8 +72,8 @@ Rails.application.configure do
   :domain         => ENV['MAILGUN_DOMAIN'],
   :user_name      => ENV['MAILGUN_USERNAME'],
   :password       => ENV['MAILGUN_PASS'],
-  :authentication => :plain,
-}}
+  :authentication => :plain
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
