@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @product_orders = ProductOrder.where(order: @order)
   end
 
   def new
@@ -24,7 +25,7 @@ class OrdersController < ApplicationController
     end
     if @order.save
       flash[:notice] = "Order started!"
-      render 'product_orders/new'
+      redirect_to new_order_product_order_path(@order)
     else
       flash[:alert] = "Order not created; please review form."
       render :new
@@ -44,9 +45,10 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @grower = @order.user
+    @product_orders = ProductOrder.where(order: @order)
     if @order.update_attributes(order_params)
       flash[:notice] = 'Order was successfully updated.'
-      redirect_to order_product_order_path(@order)
+      redirect_to new_order_product_order_path(@order)
     else
       flash[:alert] = 'Please check the errors for your order.'
       render action: 'edit'

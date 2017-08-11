@@ -23,7 +23,11 @@
   <ul>
     <% if @purchased %>
       <% @purchased.each do |item| %>
-        <li><%= item.product.name %> — <%= item.quantity %></li>
+        <li>
+          <%= item.product.name %> — <%= item.quantity %>
+          <%= button_to "Edit Order Info", edit_order_product_order_path(@order, item), method: :get %>
+          <%= button_to "Delete", { controller: :product_orders, action: 'destroy', id: item.id }, method: :delete  %>
+        </li>
       <% end %>
     <% end %>
   </ul>
@@ -31,6 +35,6 @@
   <hr>
 <h4>Add More!</h4>
 <%= render 'form' %>
-<%= button_to "I'm done", { controller: :orders, action: 'show', id: @order.id }, class: "event-form-submit" %>
+<%= button_to "I'm done", order_path(@order), method: :get, class: "event-form-submit" %>
 <%= button_to "Cancel", { controller: :orders, action: 'destroy', id: @order.id }, method: :delete, class: "cancel"  %>
 </div>

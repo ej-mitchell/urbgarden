@@ -24,6 +24,42 @@ class ProductOrdersController < ApplicationController
     end
   end
 
+  def edit
+    @product_order = ProductOrder.find(params[:id])
+    @order = Order.find(params[:order_id])
+    @user = @order.user
+    @products = Product.where(grower_id: @user.id)
+    @purchased = ProductOrder.where(order: @order)
+  end
+
+  def update
+    @product_order = ProductOrder.find(params[:id])
+    @order = Order.find(params[:order_id])
+    @user = @order.user
+    @products = Product.where(grower_id: @user.id)
+    @purchased = ProductOrder.where(order: @order)
+    if @product_order.update_attributes(product_order_params)
+      flash[:notice] = 'Order was successfully updated.'
+      redirect_to new_order_product_order_path(@order)
+    else
+      flash[:alert] = 'Please check the errors for your order.'
+      render action: 'edit'
+    end
+  end
+
+  def destroy
+    @product_order = ProductOrder.find(params[:id])
+    @order = Order.find(params[:order_id])
+    @user = @order.user
+    @products = Product.where(grower_id: @user.id)
+    @purchased = ProductOrder.where(order: @order)
+
+    if @product_order.destroy!
+      flash[:notice] = "Item deleted from order."
+      render :new
+    end
+  end
+
   private
 
   def product_order_params

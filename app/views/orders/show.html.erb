@@ -1,6 +1,13 @@
-<h1>Your Order</h1>
-<ul>
-<% @order.product_orders.each do |po| %>
-  <li><%= po.product.name %> — <%= po.quantity %></li>
-<% end %>
-</ul>
+<div class="form-div">
+  <h2>Order Summary</h2>
+  <p>Please take a screenshot or print for your records.</p>
+
+  <p>Vendor: <%= @order.user.company %><p>
+  <p>Buyer: <%= @order.name %></p>
+
+  <ul>
+  <% @order.product_orders.each do |po| %>
+    <li><%= po.product.name %> — <%= po.quantity %></li>
+  <% end %>
+  </ul>
+</div>
