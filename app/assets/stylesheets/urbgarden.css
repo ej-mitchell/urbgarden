@@ -300,6 +300,10 @@ th.order {
   opacity: 1;
 }
 
+#attending-button {
+  background-color: #A6B142;
+}
+
 .button-order {
   font-size: 14px;
   width: 100px
