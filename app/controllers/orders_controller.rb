@@ -65,7 +65,6 @@ class OrdersController < ApplicationController
 
   private
 
-
   def order_params
     params.require(:order).permit(:name, :email).merge(user: User.find(params[:user_id]), event: Event.find_by(name: params[:order][:event]))
   end

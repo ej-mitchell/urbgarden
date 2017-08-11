@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello!</h1>
+    <p>
+      An order has been successfully made. Read on below for details!<br>
+    </p>
+    <ul>
+      <% @order.each do |order| %>
+        <li><%= @order.product.name %> — <%= @order.quantity %></li>
+      <% end %>
+    </ul>
+    <p>Thanks for supporting your community and have a great day!</p>
+  </body>
+</html>
