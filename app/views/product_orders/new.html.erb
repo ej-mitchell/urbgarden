@@ -1,20 +1,33 @@
 <div class="form-div">
   <h2>Order Continued</h2>
-
-  <h4>Name:</h4>
-  <p><%= @order.name %></p>
-
-  <h4>Email:</h4>
-  <p><%= @order.email %></p>
-
-  <h4>Event:</h4>
-  <p><%= @order.event.name %></p>
-
+<table>
+  <tr>
+    <td>
+      Name:
+    </td>
+    <td>
+      <%= @order.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td><%= @order.email %></td>
+  </tr>
+  <tr>
+    <td>Event:</td>
+    <td><%= @order.event.name %></td>
+  </tr>
+</table>
+  <%= button_to "Edit Order Info", edit_order_path(@order), method: :get, class: "cancel" %>
   <h4>Currently in your cart:</h4>
   <ul>
     <% if @purchased %>
       <% @purchased.each do |item| %>
-        <li><%= item.product.name %> — <%= item.quantity %></li>
+        <li>
+          <%= item.product.name %> — <%= item.quantity %>
+          <%= button_to "Edit Order Info", edit_order_product_order_path(@order, item), method: :get %>
+          <%= button_to "Delete", { controller: :product_orders, action: 'destroy', id: item.id }, method: :delete  %>
+        </li>
       <% end %>
     <% end %>
   </ul>
@@ -22,6 +35,6 @@
   <hr>
 <h4>Add More!</h4>
 <%= render 'form' %>
-<%= button_to "I'm done", user_path(@user), method: :get, class: "event-form-submit" %>
+<%= button_to "I'm done", order_path(@order), method: :get, class: "event-form-submit" %>
 <%= button_to "Cancel", { controller: :orders, action: 'destroy', id: @order.id }, method: :delete, class: "cancel"  %>
 </div>

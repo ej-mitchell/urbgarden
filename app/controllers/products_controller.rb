@@ -18,7 +18,6 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    # @user = @product.user_id
   end
 
   def update
@@ -28,6 +27,7 @@ class ProductsController < ApplicationController
       flash[:notice] = 'Product was successfully updated.'
       redirect_to user_path(@user)
     else
+      flash[:alert] = 'Please check the errors for your product'
       render action: 'edit'
     end
   end
