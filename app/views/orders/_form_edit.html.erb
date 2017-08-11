@@ -1,0 +1,35 @@
+<%= form_for [@order] do |f| %>
+
+  <% if @order.errors.any? %>
+      <div id="error_explanation-orders">
+        <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+        <% @order.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
+
+      </div>
+  <% end %>
+
+    <div class="event-form">
+      <%= f.label :name, 'Name' %> <br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="event-form">
+      <%= f.label :email %> <br>
+      <%= f.text_field :email %>
+    </div>
+
+    <p class="form-label">Where are you picking your order up?</p>
+    <div class="event-form">
+      <% @events.each do |event|%>
+        <%= f.label :event, "#{event.name}"%>
+        <%= f.radio_button :event, "#{event.name}", value: event%><br>
+      <% end %>
+    </div>
+
+    <div class="event-form">
+      <%= f.submit 'Continue to Order', class: "event-form-submit" %>
+    </div>
+  <% end %>

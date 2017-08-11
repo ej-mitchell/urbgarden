@@ -16,12 +16,40 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @grower = User.find(params[:user_id])
+    @events_list = UserEvent.where(grower_id: params[:user_id])
+    @events = []
+    @events_list.each do |user_event|
+      @events << user_event.event
+    end
     if @order.save
       flash[:notice] = "Order started!"
-      redirect_to new_order_product_order_path(@order)
+      render 'product_orders/new'
     else
       flash[:alert] = "Order not created; please review form."
       render :new
+    end
+  end
+
+  def edit
+    @order = Order.find(params[:id])
+    @grower = @order.user
+    @events_list = UserEvent.where(grower: @grower)
+    @events = []
+    @events_list.each do |user_event|
+      @events << user_event.event
+    end
+  end
+
+  def update
+    @order = Order.find(params[:id])
+    @grower = @order.user
+    if @order.update_attributes(order_params)
+      flash[:notice] = 'Order was successfully updated.'
+      redirect_to order_product_order_path(@order)
+    else
+      flash[:alert] = 'Please check the errors for your order.'
+      render action: 'edit'
     end
   end
 
