@@ -5,9 +5,30 @@
   <p>Vendor: <%= @order.user.company %><p>
   <p>Buyer: <%= @order.name %></p>
 
-  <ul>
-  <% @order.product_orders.each do |po| %>
-    <li><%= po.product.name %> — <%= po.quantity %></li>
-  <% end %>
-  </ul>
+  <table class="order">
+    <tr>
+      <th class="order">
+        Product
+      </th>
+      <th class="order">
+        Price/Unit
+      </th>
+      <th class="order">
+        Amount Purchased
+      </th>
+    </tr>
+    <% @order.product_orders.each do |item| %>
+      <tr class="order">
+        <td>
+          <%= item.product.name %>
+        </td>
+        <td>
+          <%= item.product.price %> / <%= item.product.unit %>
+        </td>
+        <td>
+          <%= item.quantity %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>

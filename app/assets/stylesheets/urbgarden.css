@@ -184,6 +184,18 @@ tr, td {
   color: black;
 }
 
+table.order {
+  border: 1px solid;
+}
+
+th.order {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  padding: 1px;
+  background-color: white;
+}
+
+
 #title {
   padding-top: 8px;
   padding-right: 20px;
@@ -264,10 +276,10 @@ tr, td {
 }
 
 
-#attending-button, #not-attending-button, #edit-button, .event-form-submit, #log-in, #delete-button, .product-form-submit, .cancel {
+#attending-button, #not-attending-button, #edit-button, .event-form-submit, #log-in, #delete-button, .product-form-submit, .cancel, .button-order {
   display: block;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   background-color: #EAA404;
   background-image: linear-gradient(top, #6496c8, #346392);
@@ -278,14 +290,23 @@ tr, td {
   margin-left: auto;
   margin-right: auto;
   min-width: 100px;
-  max-width: 200px;
+  max-width: 150px;
   height: 30px;
   opacity: 1;
 }
 
-#not-attending-button, #delete-button, .cancel {
+#not-attending-button, #delete-button, .cancel, .delete {
   background-color: #901800;
   opacity: 1;
+}
+
+.button-order {
+  font-size: 14px;
+  width: 100px
+}
+
+.done {
+  background-color: #A6B142;
 }
 
 .welcome-events {
