@@ -12,7 +12,8 @@ class UserMailer < ApplicationMailer
 
   def order_email(user, grower, order)
     @recipients = [user, grower]
-    @order = order.product_orders
+    @order = order
+    @product_orders = order.product_orders
     @recipients.each do |addressee|
       mail to: addressee, subject: "New Order from UrbGarden"
     end

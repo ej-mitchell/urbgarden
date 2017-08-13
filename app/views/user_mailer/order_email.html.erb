@@ -6,13 +6,19 @@
   <body>
     <h1>Hello!</h1>
     <p>
-      An order has been successfully made. Read on below for details!<br>
+      An order has been successfully made. Details are below:
     </p>
+    <p>Company: <%= @order.user.company %>, <%= @order.user.email %></p>
+    <p>Customer: <%= @order.name %>, <%= @order.email %></p>
+    <p>Items purchased:</p>
     <ul>
-      <% @order.each do |order| %>
-        <li><%= order.product.name %> — <%= order.quantity %></li>
+      <% @product_orders.each do |order| %>
+        <li>
+          <%= order.product.name %> (<% order.product.price %>/<%= order.product.unit %>) — <%= order.quantity %>
+        </li>
       <% end %>
     </ul>
+
     <p>Thanks for supporting your community and have a great day!</p>
   </body>
 </html>
