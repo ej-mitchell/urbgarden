@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :products, foreign_key: "product_id"
-  has_many :events
-  has_many :user_events
+  has_many :products, foreign_key: "product_id", dependent: :destroy
+  has_many :events, dependent: :destroy
+  has_many :user_events, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
 
   validates :first_name, presence: true
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :zip, format: { with: /\b\d{5}(-\d{4})?\b/ }
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 
-  
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
