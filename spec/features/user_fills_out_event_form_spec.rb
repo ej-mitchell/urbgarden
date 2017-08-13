@@ -33,7 +33,6 @@ feature 'user adds a new event' do
     fill_in "City", with: "Boston"
     select "MA", from: "State"
     fill_in "Event URL", with: "http://www.google.com"
-    fill_in "Map URL", with: "http://www.maps.google.com"
     select_date_and_time(DateTime.now, from: :event_start_time)
     select_date_and_time(DateTime.new(2017,07,31,4,5,6), from: :event_end_time)
 
