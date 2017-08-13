@@ -55,6 +55,7 @@
 
   <% if (user_signed_in?) && (@user.id == current_user.id) %>
   <h4>Page Admin</h4>
-    <%= link_to "Add new product", new_user_product_path(@user), class: "event-list profile-links" %>
+    <%= link_to "Add new product", new_user_product_path(@user), class: "event-list profile-links" %><br>
+    <%= link_to "Edit Profile", edit_user_registration_path, class: "event-list profile-links"%>
   <% end %>
 <div>
