@@ -63,8 +63,16 @@ class OrdersController < ApplicationController
     end
   end
 
-  private
+  def send_order_mail
+    @order = Order.find(params[:order_id])
+    @client = @order.email
+    @vendor = @order.user.email
+    UserMailer.order_email(@vendor, @client, @order).deliver_now
+    flash[:notice] = "Order has been sent."
+    redirect_to order_path(@order)
+  end
 
+  private
   def order_params
     params.require(:order).permit(:name, :email).merge(user: User.find(params[:user_id]), event: Event.find_by(name: params[:order][:event]))
   end

@@ -65,7 +65,7 @@ class Event < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true
-  validates :map_url, format: { with: /https?:\/\/[\S]+/, allow_blank: true }
+  # validates :map_url, format: { with: /https?:\/\/[\S]+/, allow_blank: true }
   validates :user_id, presence: true
 
   def self.search(search)

@@ -8,7 +8,7 @@ FactoryGirl.define do
     address '221B Baker Street'
     city 'London'
     state 'MA'
-    map_url "http://google.com/maps"
+    # map_url "http://google.com/maps"
 
   end
 end
