@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders do
+    get :send_order_mail, to: 'orders#send_order_mail', as: :send_order_mail
     resources :product_orders, only: [:new, :create, :edit, :update, :destroy]
   end
 

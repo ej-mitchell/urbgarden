@@ -10,7 +10,7 @@
     </p>
     <ul>
       <% @order.each do |order| %>
-        <li><%= @order.product.name %> — <%= @order.quantity %></li>
+        <li><%= order.product.name %> — <%= order.quantity %></li>
       <% end %>
     </ul>
     <p>Thanks for supporting your community and have a great day!</p>

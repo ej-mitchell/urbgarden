@@ -58,6 +58,6 @@
   <hr>
 <h4>Add More!</h4>
 <%= render 'form' %>
-<%= button_to "I'm done", order_path(@order), method: :get, class: "event-form-submit done" %>
+<%= button_to "I'm done", { controller: :orders, action: "send_order_mail" }, method: :get, class: "event-form-submit done" %>
 <%= button_to "Cancel", { controller: :orders, action: 'destroy', id: @order.id }, method: :delete, class: "cancel"  %>
 </div>
