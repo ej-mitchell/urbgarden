@@ -4,17 +4,17 @@
 ![Coverage Status](https://coveralls.io/repos/eliza-jane/urbgarden/badge.png)
 
 ## UrbGarden (Breakable Toy)
-###Launch Academy, August 2017
+### Launch Academy, August 2017
 
 UrbGarden is a site to bridge the gap between local growers and their potential customers. Growers create an account to manage/showcase their products and events, and site visitors can make orders to pick them up at an event of their choosing.
 
-###Technologies
+### Technologies
 
 UrbGarden takes advantage of several different technologies. The site itself is split into three components:
 
-(1) The homepage: built in React.js
-(2) The showpage(s): one for each event on the homepage, also built in React.js. (These two aforementioned pages are connected with React Router to minimize page reloads.)
-(3) The public profile page: one for each user who signs up, built in Rails.
+1. The homepage: built in React.js
+2. The showpage(s): one for each event on the homepage, also built in React.js. (These two aforementioned pages are connected with React Router to minimize page reloads.)
+3. The public profile page: one for each user who signs up, built in Rails.
 
 All forms are built in Rails. Authentication is managed with Devise. Mail is handled by ActionMailer and Mailgun. The future of this app is a more React-focused frontend to make for a better user experience.
 
