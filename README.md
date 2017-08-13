@@ -18,7 +18,7 @@ UrbGarden takes advantage of several different technologies. The site itself is 
 
 All forms are built in Rails. Authentication is managed with Devise. Mail is handled by ActionMailer and Mailgun. The future of this app is a more React-focused frontend to make for a better user experience.
 
-###Setup
+### Setup
 
 To set up this program on your system, run
 
@@ -39,7 +39,7 @@ yarn start
 If `yarn` gives you an error, try running `npm install` to make sure you are set up with all the appropriate `node` modules.
 
 
-Next, navigate to localhost:3000. The site should show up after this.
+Next, navigate to `localhost:3000`. The site should show up after this.
 
 To run the Ruby tests, run `rake` or `rspec`.
 To run the React tests, run `karma start`.
