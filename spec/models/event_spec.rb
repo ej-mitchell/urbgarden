@@ -7,7 +7,7 @@ RSpec.describe Event, type: :model do
   it { should have_valid(:address).when("221B Baker St") }
   it { should have_valid(:state).when("MA", "CT") }
   it { should have_valid(:city).when("Boston", "Providence") }
-  it { should have_valid(:map_url).when("http://www.google.com/maps") }
+  # it { should have_valid(:map_url).when("http://www.google.com/maps") }
 
 
   it { should_not have_valid(:name).when("", nil) }
@@ -17,6 +17,6 @@ RSpec.describe Event, type: :model do
   it { should_not have_valid(:address).when("", nil) }
   it { should_not have_valid(:state).when("", nil) }
   it { should_not have_valid(:city).when("", nil) }
-  it { should_not have_valid(:map_url).when("www.fj.com", "fj.com") }
+  # it { should_not have_valid(:map_url).when("www.fj.com", "fj.com") }
 
 end
