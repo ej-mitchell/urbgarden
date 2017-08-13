@@ -9,7 +9,7 @@
       An order has been successfully made. Details are below:
     </p>
     <p>Company: <%= @order.user.company %>, <%= @order.user.email %></p>
-    <p>Customer: <%= @order.name %>, <%= @order.email %>
+    <p>Customer: <%= @order.name %>, <%= @order.email %></p>
     <p>Items purchased:</p>
     <ul>
       <% @product_orders.each do |order| %>
