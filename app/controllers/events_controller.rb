@@ -22,7 +22,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-
     if @event.save
       flash[:notice] = "Event created!"
       UserMailer.event_email(@event.user).deliver_now
