@@ -15,6 +15,7 @@ feature 'user visits the homepage' do
   scenario 'user sees a list of events' do
     visit root_path
     expect(page).to have_content("Upcoming Events")
+    page.should have_css('div#app')
   end
 
   scenario 'user clicks on Profile button on the top bar' do
@@ -29,5 +30,10 @@ feature 'user visits the homepage' do
     visit root_path
     click_link "Add Event"
     expect(page).to have_content("Add New Event")
+  end
+  
+  scenario 'unauthenticated user visits homepage' do
+    visit root_path
+    expect(page).to_not have_link("Add Event")
   end
 end
