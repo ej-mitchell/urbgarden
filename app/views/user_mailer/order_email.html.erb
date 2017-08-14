@@ -14,7 +14,7 @@
     <ul>
       <% @product_orders.each do |order| %>
         <li>
-          <%= order.product.name %> (<% order.product.price %>/<%= order.product.unit %>) — <%= order.quantity %>
+          <%= order.product.name %> (<%= order.product.price %>/<%= order.product.unit %>) — <%= order.quantity %>
         </li>
       <% end %>
     </ul>

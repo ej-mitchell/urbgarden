@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20170807200729) do
     t.string "address", null: false
     t.string "city", null: false
     t.string "state", null: false
-    t.string "map_url"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -16,7 +16,7 @@ end
 
 30.times do
   Event.create(user_id: rand(1..20), name: Faker::Hipster.sentence(3), description: Faker::StarWars.quote, start_time: "09-09-09 10:10:10", end_time: "10-10-10 11:11:00", event_url: "https://github.com/stympy/faker", address: Faker::Address.street_address,
-    city: Faker::StarTrek.location, state: Faker::Address.state_abbr, map_url: 'https://goo.gl/maps/7DNC7RqiEgP2')
+    city: Faker::StarTrek.location, state: Faker::Address.state_abbr)
 end
 
 50.times do

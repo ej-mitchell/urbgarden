@@ -14,8 +14,7 @@ class UserMailer < ApplicationMailer
     @recipients = [user, grower]
     @order = order
     @product_orders = order.product_orders
-    @recipients.each do |addressee|
-      mail to: addressee, subject: "New Order from UrbGarden"
-    end
+    
+    mail to: @recipients.join("; "), subject: "New Order from UrbGarden"
   end
 end

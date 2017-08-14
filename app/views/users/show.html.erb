@@ -23,20 +23,20 @@
 </table>
 
 <h3 class="profile-header">Events</h3>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Location</th>
-  </tr>
-  <% @events.each do |event| %>
+  <table>
     <tr>
-      <td><%= link_to event.event.name, event_path(event.event), class: "event-list" %></td>
-      <td><%= event.event.start_time.strftime("%D — %l:%M %p") %></td>
-      <td><%= event.event.city %>, <%= event.event.state %></td>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Location</th>
     </tr>
-  <% end %>
-</table>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= link_to event.name, event_path(event), class: "event-list" %></td>
+        <td><%= event.start_time.strftime("%D — %l:%M %p") %></td>
+        <td><%= event.city %>, <%= event.state %></td>
+      </tr>
+    <% end %>
+  </table>
 
 <h4 class="welcome-events">Like what you see? <%=link_to "Make an order!", new_user_order_path(@user), class: "event-list"%></h4>
 

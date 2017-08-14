@@ -17,7 +17,8 @@
     </div>
 
     <div class="product-form">
-      <%= f.label :price %> <br>
+      <%= f.label :price, "Price (USD)" %> <br>
+      <p>Please go to two decimal places (e.g.: 1.00, not $1 or 1.0).</p>
       <%= f.text_field :price %>
     </div>
 

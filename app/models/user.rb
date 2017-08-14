@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :products, foreign_key: "product_id"
+  has_many :products, foreign_key: "grower_id", dependent: :destroy
   has_many :events, dependent: :destroy
-  has_many :user_events
+  has_many :user_events, foreign_key: "grower_id", dependent: :destroy
   mount_uploader :avatar, AvatarUploader
 
   validates :first_name, presence: true

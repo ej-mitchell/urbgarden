@@ -46,6 +46,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @grower = @order.user
     @product_orders = ProductOrder.where(order: @order)
+    @events_list = UserEvent.where(grower: @grower)
+    @events = []
+    @events_list.each do |user_event|
+      @events << user_event.event
+    end
     if @order.update_attributes(order_params)
       flash[:notice] = 'Order was successfully updated.'
       redirect_to new_order_product_order_path(@order)
