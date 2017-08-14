@@ -39,7 +39,7 @@ describe('EventInfoTile', () => {
 
   it ('should have details about the event', () => {
     expect(wrapper.find('p').at(0).text()).toEqual("GBFG");
-    expect(wrapper.find('p').at(1)).toIncludeText("09/09/10");
+    expect(wrapper.find('p').at(1)).toIncludeText("Sep");
     expect(wrapper.find('p').at(2)).toIncludeText("123");
     expect(wrapper.find('p').at(3)).toIncludeText("Great Barrington");
     expect(wrapper.find('p').at(5)).toIncludeText("Eliza");
