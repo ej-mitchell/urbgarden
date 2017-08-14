@@ -5,7 +5,6 @@ const EventInfoTile = (props) => {
   let end = new Date(props.end_time);
   let start_time = start.toLocaleTimeString();
   let end_time = end.toLocaleTimeString();
-  debugger;
   return (
     <div>
       <h3 id="event-header">Description</h3>
