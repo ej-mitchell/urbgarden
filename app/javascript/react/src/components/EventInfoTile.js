@@ -1,12 +1,17 @@
 import React from 'react';
 
 const EventInfoTile = (props) => {
+  let start = new Date(props.start_time);
+  let end = new Date(props.end_time);
+  let start_time = start.toLocaleTimeString();
+  let end_time = end.toLocaleTimeString();
+  debugger;
   return (
     <div>
       <h3 id="event-header">Description</h3>
       <p>{props.description}</p>
       <h3 id="event-header">Time</h3>
-      <p>{props.start_time} — {props.end_time}</p>
+      <p>{start.toDateString()}, {start_time} — {end.toDateString()}, {end_time}</p>
       <h3 id="event-header">Address</h3>
       <p>{props.address},</p>
       <p>{props.city}, {props.state}</p>
