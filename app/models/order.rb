@@ -9,6 +9,8 @@ class Order < ApplicationRecord
   validates :email, presence: true
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
   validates :name, presence: true
+  validates :event_id, presence: true
+  validates :user_id, presence: true
 
 
 end

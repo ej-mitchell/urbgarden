@@ -13,6 +13,10 @@ class OrdersController < ApplicationController
     @events_list.each do |user_event|
       @events << user_event.event
     end
+    @user_created = Event.where(user_id: params[:user_id])
+    @user_created.each do |event|
+      @events << event
+    end
   end
 
   def create
@@ -22,6 +26,10 @@ class OrdersController < ApplicationController
     @events = []
     @events_list.each do |user_event|
       @events << user_event.event
+    end
+    @user_created = Event.where(user_id: params[:user_id])
+    @user_created.each do |event|
+      @events << event
     end
     if @order.save
       flash[:notice] = "Order started!"
@@ -40,6 +48,10 @@ class OrdersController < ApplicationController
     @events_list.each do |user_event|
       @events << user_event.event
     end
+    @user_created = Event.where(user: @grower)
+    @user_created.each do |event|
+      @events << event
+    end
   end
 
   def update
@@ -50,6 +62,10 @@ class OrdersController < ApplicationController
     @events = []
     @events_list.each do |user_event|
       @events << user_event.event
+    end
+    @user_created = Event.where(user: @grower)
+    @user_created.each do |event|
+      @events << event
     end
     if @order.update_attributes(order_params)
       flash[:notice] = 'Order was successfully updated.'

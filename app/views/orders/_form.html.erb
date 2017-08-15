@@ -25,7 +25,7 @@
     <div class="event-form">
       <% @events.each do |event|%>
         <%= f.label :event, "#{event.name}"%>
-        <%= f.radio_button :event, "#{event.name}", value: event%><br>
+        <%= f.radio_button :event, "#{event.name}", value: event, id:"#{event.id}" %><br>
       <% end %>
     </div>
 
